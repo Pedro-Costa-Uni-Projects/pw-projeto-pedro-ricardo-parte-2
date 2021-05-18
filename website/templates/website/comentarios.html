@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="keywords" content="Natação, Swimming, Desporto">
+    <meta name="desciption" content="Introdução a Natação">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet"> 
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+    <title>Natação</title>
+</head>
+<body>
+    <header>
+        <h1>Natação</h1>
+    </header>
+    <nav>
+        <a href="index.html">
+            <span class="material-icons md-24">home</span>
+            Home
+        </a>
+        <a href="estilos.html">
+            <span class="material-icons md-24">pool</span>
+            Estilos
+        </a>
+        <a href="benificios.html">
+            <span class="material-icons md-24">thumb_up</span>
+            Benifícios
+        </a>
+        <a href="provas.html">
+            <span class="material-icons md-24">timer</span>
+            Provas
+        </a>
+        <a href="galeria.html">
+            <span class="material-icons md-24">mms</span>
+            Galeria
+        </a>
+        <a class="active" href="comentarios.html">
+            <span class="material-icons md-24">feedback</span>
+            Comentarios
+        </a>
+        <a href="about.html">
+            <span class="material-icons md-24">build</span>
+            About
+        </a>
+    </nav>
+    <main>
+        <h3>Dê-nos a sua opinião sobre o Website</h3>
+        <form method="POST" action="mailto:a21904553@alunos.ulht.pt">
+            <input type="reset" value="Limpar">
+            <p>
+                <label class="widthLabel" for="fname">Primeiro Nome:</label>
+                <input type="text" id="fname" name="firstname" placeholder="Seu nome...">
+            </p>
+            <p>
+                <label class="widthLabel" for="lname">Último Nome:</label>
+                <input type="text" id="lname" name="lastname" placeholder="Seu último nome...">
+            </p>
+            <p>
+                <label class="widthLabel" for="email">Email:</label> 
+                <input type="email" id="email" name="email" placeholder="Seu email..."> 
+            </p>
+            <p>
+                <label class="widthLabel" for="pais">País: </label> 
+                <select id="pais" name="pais">    
+                    <option value="none">Selecione uma opção</option>    
+                    <option value="pt">Portugal</option>    
+                    <option value="br">Brasil</option>    
+                    <option value="esp">Espanha</option>    
+                    <option value="uk">Reino Unido</option>    
+                    <option value="ale">Alemanha</option>    
+                    <option value="bel">Bélgica</option>    
+                    <option value="eua">EUA</option>    
+                </select>  
+            </p>
+            <p>&#x2139; Escolha para cada critério um valor de 1 a 5 sendo 1 Péssimo e 5 Muito Bom.</p>
+            <p>Clareza:
+                <input type="radio" id="clar1" name="clar" value="1">
+                <label for="clar1">1</label>
+                <input type="radio" id="clar2" name="clar" value="2">
+                <label for="clar2">2</label>
+                <input type="radio" id="clar3" name="clar" value="3">
+                <label for="clar3">3</label>
+                <input type="radio" id="clar4" name="clar" value="4">
+                <label for="clar4">4</label>
+                <input type="radio" id="clar5" name="clar" value="5">
+                <label for="clar5">5</label>
+            </p>
+            <p>Rigor:
+                <input type="radio" id="Rig1" name="Rig" value="1">
+                <label for="rig1">1</label>
+                <input type="radio" id="Rig2" name="Rig" value="2">
+                <label for="rig2">2</label>
+                <input type="radio" id="Rig3" name="Rig" value="3">
+                <label for="rig3">3</label>
+                <input type="radio" id="Rig4" name="Rig" value="4">
+                <label for="rig4">4</label>
+                <input type="radio" id="Rig5" name="Rig" value="5">
+                <label for="rig5">5</label>
+            </p>
+            <p>Originalidade:
+                <input type="radio" id="Ori1" name="Ori" value="1">
+                <label for="ori1">1</label>
+                <input type="radio" id="Ori2" name="Ori" value="2">
+                <label for="ori2">2</label>
+                <input type="radio" id="Ori3" name="Ori" value="3">
+                <label for="ori3">3</label>
+                <input type="radio" id="Ori4" name="Ori" value="4">
+                <label for="ori4">4</label>
+                <input type="radio" id="Ori5" name="Ori" value="5">
+                <label for="ori5">5</label>
+            </p>
+            <p>Precisão:
+                <input type="radio" id="Pre1" name="Pre" value="1">
+                <label for="pre1">1</label>
+                <input type="radio" id="Pre2" name="Pre" value="2">
+                <label for="pre2">2</label>
+                <input type="radio" id="Pre3" name="Pre" value="3">
+                <label for="pre3">3</label>
+                <input type="radio" id="Pre4" name="Pre" value="4">
+                <label for="pre4">4</label>
+                <input type="radio" id="Pre5" name="Pre" value="5">
+                <label for="pre5">5</label>
+            </p>
+
+            <p>&#x2139; Escolha as opções que acha que este Website teve em conta:</p>
+                <u>
+                    <li>
+                        <label for="opt">Boa optimização para telemóvel</label>
+                        <input type="checkbox" id="opt" name="opt" value="optTelemovel">
+                    </li>
+                    <li>
+                        <label for="tmp">Tempo de resposta do Website</label>
+                        <input type="checkbox" id="tmp" name="tmp" value="tempoWebsite">
+                    </li>
+                    <li>
+                        <label for="use">Fácil de Usar</label>
+                        <input type="checkbox" id="use" name="use" value="FacilUsar">
+                    </li>
+                    <li>
+                        <label for="ler">Fácil de ler</label>
+                        <input type="checkbox" id="ler" name="ler" value="FacilLer">
+                    </li>
+                </u>
+                <br>
+                <h4>FeedBack:</h4>
+                <p>
+                    <textarea name="mensagem" rows="7" placeholder="A sua opinião..."></textarea>
+                </p>
+                <input class = "buttonSubmit" type="submit" value="Enviar Comentários">
+        </form>
+    </main>
+    <aside>
+        <svg width="300" height="200">
+            <image href="images/wordcloud.png" width="100%" height="100%"></image>
+            <!-- opacity a zero para não aparecer na figura os rectangulos-->
+            <!--points -> sup. direito ; inf. direito; inf. esquerdo ; sup. esquerdo-->
+            <a href="index.html">
+                <polygon opacity="0.0" points="0,0 0,200 300,200 300,0" />
+            </a>
+            <a href="benificios.html" >
+                <polygon opacity="0.0" points="101,101 101,121 245,121 245,101" />
+            </a>
+            <a href="galeria.html">
+                <polygon opacity="0.0" points="151,83 155,100 254,100 254,83" />
+            </a>
+            <a href="provas.html">
+                <polygon opacity="0.0" points="86,177 103,194 178,153 169,140" />
+            </a>
+            <a href="estilos.html">
+                <polygon opacity="0.0" points="87,57 104,72 172,24 160,16" />
+            </a>
+            <a href="comentarios.html">
+                <polygon opacity="0.0" points="55,121 55,142 245,142 245,121" />
+            </a>
+            <a href="about.html">
+                <polygon opacity="0.0" points="55,29 62,48 143,24 132,8" />
+            </a>
+        </svg>
+    </aside>
+    <footer>
+        <hr>
+        Projeto - Programação Web - Uni. Lusófona - 2020/2021
+    </footer>
+</body>
+</html>
