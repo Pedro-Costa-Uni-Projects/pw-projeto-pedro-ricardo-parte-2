@@ -1,7 +1,3 @@
-from environs import Env
-
-env = Env()
-env.read_env()
 """
 Django settings for config project.
 
@@ -13,8 +9,11 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import environs
 from pathlib import Path
+
+env = environs.Env()
+environs.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
