@@ -29,3 +29,11 @@ def galeria_page_view(request):
 
 def provas_page_view(request):
     return render(request, 'website/provas.html')
+
+
+def contacto_page_view(request):
+    return render(request, 'website/contacto.html')
+
+
+def quizz_page_view(request):
+    return render(request, 'website/quizz.html')
