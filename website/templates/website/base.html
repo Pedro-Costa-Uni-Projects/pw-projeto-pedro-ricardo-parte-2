@@ -2,10 +2,6 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <style>
-        {% block style %}
-        {% endblock style %}
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta name="keywords" content="Natação, Swimming, Desporto">
@@ -16,13 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'website/images/favicon.ico' %}"/>
     <title>Natação</title>
+    <style>
+        {% block style %}
+        {% endblock style %}
+    </style>
 </head>
 <body>
     <header>
         <h1>Natação</h1>
     </header>
     <nav>
-        <!--O nav naão fica aqui por causa da class Active-->
+        <!--O nav não fica aqui por causa da class Active-->
         {% block nav %}
         {% endblock nav %}
     </nav>

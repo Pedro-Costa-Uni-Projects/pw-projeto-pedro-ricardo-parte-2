@@ -1,5 +1,22 @@
 {% extends 'website/base.html' %}
 {% load static %}
+{% block style %}
+    ul > li {
+        display: inline-block;
+    }
+    ul {
+        list-style: nome;
+    }
+    textarea {
+        display: block;
+        margin-top: 1%;
+    }
+    @media (max-width: 600px) {
+        textarea {
+            width: 100%
+        }
+    }
+{% endblock style %}
 {% block nav %}
     <a href="{% url 'website:home' %}">
         <span class="material-icons md-24">home</span>
@@ -40,81 +57,16 @@
 {% endblock nav %}
 {% block main %}
     <h3>Dê-nos a sua opinião sobre o Website</h3>
-    <form method="POST" action="mailto:a21904553@alunos.ulht.pt">
-        &#x2139; Escolha para cada critério um valor de 1 a 5 sendo 1 Péssimo e 5 Muito Bom.
-        <p>Clareza:
-            <input type="radio" id="clar1" name="clar" value="1">
-            <label for="clar1">1</label>
-            <input type="radio" id="clar2" name="clar" value="2">
-            <label for="clar2">2</label>
-            <input type="radio" id="clar3" name="clar" value="3">
-            <label for="clar3">3</label>
-            <input type="radio" id="clar4" name="clar" value="4">
-            <label for="clar4">4</label>
-            <input type="radio" id="clar5" name="clar" value="5">
-            <label for="clar5">5</label>
-        </p>
-        <p>Rigor:
-            <input type="radio" id="Rig1" name="Rig" value="1">
-            <label for="Rig1">1</label>
-            <input type="radio" id="Rig2" name="Rig" value="2">
-            <label for="Rig2">2</label>
-            <input type="radio" id="Rig3" name="Rig" value="3">
-            <label for="Rig3">3</label>
-            <input type="radio" id="Rig4" name="Rig" value="4">
-            <label for="Rig4">4</label>
-            <input type="radio" id="Rig5" name="Rig" value="5">
-            <label for="Rig5">5</label>
-        </p>
-        <p>Originalidade:
-            <input type="radio" id="Ori1" name="Ori" value="1">
-            <label for="Ori1">1</label>
-            <input type="radio" id="Ori2" name="Ori" value="2">
-            <label for="Ori2">2</label>
-            <input type="radio" id="Ori3" name="Ori" value="3">
-            <label for="Ori3">3</label>
-            <input type="radio" id="Ori4" name="Ori" value="4">
-            <label for="Ori4">4</label>
-            <input type="radio" id="Ori5" name="Ori" value="5">
-            <label for="Ori5">5</label>
-        </p>
-        <p>Precisão:
-            <input type="radio" id="Pre1" name="Pre" value="1">
-            <label for="Pre1">1</label>
-            <input type="radio" id="Pre2" name="Pre" value="2">
-            <label for="Pre2">2</label>
-            <input type="radio" id="Pre3" name="Pre" value="3">
-            <label for="Pre3">3</label>
-            <input type="radio" id="Pre4" name="Pre" value="4">
-            <label for="Pre4">4</label>
-            <input type="radio" id="Pre5" name="Pre" value="5">
-            <label for="Pre5">5</label>
-        </p>
-
-        <p>&#x2139; Escolha as opções que acha que este Website teve em conta:</p>
-            <u>
-                <li>
-                    <label for="opt">Boa optimização para telemóvel</label>
-                    <input type="checkbox" id="opt" name="opt" value="optTelemovel">
-                </li>
-                <li>
-                    <label for="tmp">Tempo de resposta do Website</label>
-                    <input type="checkbox" id="tmp" name="tmp" value="tempoWebsite">
-                </li>
-                <li>
-                    <label for="use">Fácil de Usar</label>
-                    <input type="checkbox" id="use" name="use" value="FacilUsar">
-                </li>
-                <li>
-                    <label for="ler">Fácil de ler</label>
-                    <input type="checkbox" id="ler" name="ler" value="FacilLer">
-                </li>
-            </u>
-            <br>
-            <h4>FeedBack:</h4>
-            <p>
-                <textarea name="mensagem" rows="7" placeholder="A sua opinião..."></textarea>
-            </p>
-            <input class = "buttonSubmit" type="submit" value="Enviar Comentários">
+    <form method="POST" action="">
+        <p>&#x2139; Para os 3 primeiros critérios escolha um valor de 1 a 5 sendo 1 Péssimo e 5 Muito Bom. Para os outros escolha o que acha que o Website teve em conta.</p>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class = "buttonSubmit" type="submit" value="Enviar Comentários">
     </form>
+    <div class="centerIframeOrSvg">
+        {{ graphCir|safe }}
+    </div>
+    <div class="centerIframeOrSvg">
+        {{ graphBar|safe }}
+    </div>
 {% endblock main %}

@@ -2,7 +2,10 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
+from .matplot import comentariosGraficoCircular
+from .matplot import comentariosGraficoBarras
 from .forms import ContactoForm
+from .forms import ComentarioForm
 
 
 # Create your views here.
@@ -20,7 +23,18 @@ def benificios_page_view(request):
 
 
 def comentarios_page_view(request):
-    return render(request, 'website/comentarios.html')
+    form = ComentarioForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        context = {
+            'form': form,
+            'graphCir': comentariosGraficoCircular(),
+            'graphBar': comentariosGraficoBarras()
+        }
+    else:
+        context = {'form': form}
+
+    return render(request, 'website/comentarios.html', context)
 
 
 def estilos_page_view(request):
