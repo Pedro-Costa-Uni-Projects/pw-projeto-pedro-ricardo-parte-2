@@ -1,4 +1,8 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
+
+from .forms import ContactoForm
 
 
 # Create your views here.
@@ -32,7 +36,14 @@ def provas_page_view(request):
 
 
 def contacto_page_view(request):
-    return render(request, 'website/contacto.html')
+    form = ContactoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('website:home'))
+
+    context = {'form': form}
+
+    return render(request, 'website/contacto.html', context)
 
 
 def quizz_page_view(request):

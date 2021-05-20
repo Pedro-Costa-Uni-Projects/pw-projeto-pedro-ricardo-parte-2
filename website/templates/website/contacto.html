@@ -1,5 +1,16 @@
 {% extends 'website/base.html' %}
 {% load static %}
+{% block style %}
+    label {
+        float:left;
+        width: 7%
+    }
+    @media (max-width: 600px) {
+        label {
+            width: 15%;
+        }
+    }
+{% endblock style %}
 {% block nav %}
     <a href="{% url 'website:home' %}">
         <span class="material-icons md-24">home</span>
@@ -40,33 +51,9 @@
 {% endblock nav %}
 {% block main %}
     <h3>Dê-nos a sua opinião sobre o Website</h3>
-    <form method="POST" action="mailto:a21904553@alunos.ulht.pt">
-        <input type="reset" value="Limpar">
-        <p>
-            <label class="widthLabel" for="fname">Primeiro Nome:</label>
-            <input type="text" id="fname" name="firstname" placeholder="Seu nome...">
-        </p>
-        <p>
-            <label class="widthLabel" for="lname">Último Nome:</label>
-            <input type="text" id="lname" name="lastname" placeholder="Seu último nome...">
-        </p>
-        <p>
-            <label class="widthLabel" for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Seu email...">
-        </p>
-        <p>
-            <label class="widthLabel" for="pais">País: </label>
-            <select id="pais" name="pais">
-                <option value="none">Selecione uma opção</option>
-                <option value="pt">Portugal</option>
-                <option value="br">Brasil</option>
-                <option value="esp">Espanha</option>
-                <option value="uk">Reino Unido</option>
-                <option value="ale">Alemanha</option>
-                <option value="bel">Bélgica</option>
-                <option value="eua">EUA</option>
-            </select>
-        </p>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
     <input class = "buttonSubmit" type="submit" value="Submeter">
     </form>
 {% endblock main %}
