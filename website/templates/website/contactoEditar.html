@@ -1,19 +1,13 @@
 {% extends 'website/base.html' %}
 {% load static %}
 {% block style %}
-    ul > li {
-        display: inline-block;
-    }
-    ul {
-        list-style: nome;
-    }
-    textarea {
-        display: block;
-        margin-top: 1%;
+    label {
+        float:left;
+        width: 7%
     }
     @media (max-width: 600px) {
-        textarea {
-            width: 100%
+        label {
+            width: 15%;
         }
     }
 {% endblock style %}
@@ -38,7 +32,7 @@
         <span class="material-icons md-24">mms</span>
         Galeria
     </a>
-    <a class="active" href="{% url 'website:comentarios' %}">
+    <a href="{% url 'website:comentarios' %}">
         <span class="material-icons md-24">feedback</span>
         Comentarios
     </a>
@@ -46,7 +40,7 @@
         <span class="material-icons md-24">quiz</span>
         Quizz
     </a>
-    <a href="{% url 'website:contacto' %}">
+    <a class="active" href="{% url 'website:contacto' %}">
         <span class="material-icons md-24">alternate_email</span>
         Contacto
     </a>
@@ -57,16 +51,13 @@
 {% endblock nav %}
 {% block main %}
     <h3>Dê-nos a sua opinião sobre o Website</h3>
-    <form method="POST" action="">
-        <p>&#x2139; Para os 3 primeiros critérios escolha um valor de 1 a 5 sendo 1 Péssimo e 5 Muito Bom. Para os outros escolha o que acha que o Website teve em conta.</p>
+    <form method="POST" action="{% url 'website:contactoEdita' contacto_id %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <input class = "btn btn-primary" type="submit" value="Enviar Comentários">
+    <a href="{% url 'website:home' %}" class="btn btn-info">Cancelar</a>
+    <input class="btn btn-success" type="submit" value="Gravar">
+    <a href="{% url 'website:contactoApaga' contacto_id %}" class="btn btn-danger">Apagar</a>
     </form>
-    <div class="centerIframeOrSvg">
-        {{ graphCir|safe }}
-    </div>
-    <div class="centerIframeOrSvg">
-        {{ graphBar|safe }}
-    </div>
+    <br>
+    <a class="btn btn-primary" href="{% url 'website:contactoLista' %}">Ver Todos os Contactos</a>
 {% endblock main %}

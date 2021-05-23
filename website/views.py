@@ -7,8 +7,9 @@ from .matplot import comentariosGraficoBarras
 from .forms import ContactoForm
 from .forms import ComentarioForm
 
-
 # Create your views here.
+from .models import Contacto
+
 
 def home_page_view(request):
     return render(request, 'website/index.html')
@@ -58,6 +59,27 @@ def contacto_page_view(request):
     context = {'form': form}
 
     return render(request, 'website/contacto.html', context)
+
+
+def contactoLista_page_view(request):
+    context = {'contactos': sorted(Contacto.objects.all(), key=lambda objeto: objeto.id)}
+    return render(request, 'website/contactoLista.html', context)
+
+
+def contactoEditar_page_view(request, contacto_id):
+    contacto = Contacto.objects.get(pk=contacto_id)
+    form = ContactoForm(request.POST or None, instance=contacto)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('website:home'))
+
+    context = {'form': form, 'contacto_id': contacto_id}
+    return render(request, 'website/contactoEditar.html', context)
+
+
+def contactoApaga_page_view(request, contacto_id):
+    Contacto.objects.get(pk=contacto_id).delete()
+    return HttpResponseRedirect(reverse('website:home'))
 
 
 def quizz_page_view(request):

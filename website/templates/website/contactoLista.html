@@ -1,20 +1,11 @@
 {% extends 'website/base.html' %}
 {% load static %}
 {% block style %}
-    ul > li {
-        display: inline-block;
-    }
-    ul {
-        list-style: nome;
-    }
-    textarea {
-        display: block;
-        margin-top: 1%;
-    }
-    @media (max-width: 600px) {
-        textarea {
-            width: 100%
-        }
+    main > p {
+        text-align: left;
+        padding: 10px;
+        margin: 10px;
+        background-color: rgb(0, 153, 255);
     }
 {% endblock style %}
 {% block nav %}
@@ -38,7 +29,7 @@
         <span class="material-icons md-24">mms</span>
         Galeria
     </a>
-    <a class="active" href="{% url 'website:comentarios' %}">
+    <a href="{% url 'website:comentarios' %}">
         <span class="material-icons md-24">feedback</span>
         Comentarios
     </a>
@@ -46,7 +37,7 @@
         <span class="material-icons md-24">quiz</span>
         Quizz
     </a>
-    <a href="{% url 'website:contacto' %}">
+    <a class="active" href="{% url 'website:contacto' %}">
         <span class="material-icons md-24">alternate_email</span>
         Contacto
     </a>
@@ -56,17 +47,15 @@
     </a>
 {% endblock nav %}
 {% block main %}
-    <h3>Dê-nos a sua opinião sobre o Website</h3>
-    <form method="POST" action="">
-        <p>&#x2139; Para os 3 primeiros critérios escolha um valor de 1 a 5 sendo 1 Péssimo e 5 Muito Bom. Para os outros escolha o que acha que o Website teve em conta.</p>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input class = "btn btn-primary" type="submit" value="Enviar Comentários">
-    </form>
-    <div class="centerIframeOrSvg">
-        {{ graphCir|safe }}
-    </div>
-    <div class="centerIframeOrSvg">
-        {{ graphBar|safe }}
-    </div>
+    <h3>Lista de Contactos</h3>
+    {% for contacto in contactos %}
+        <p>
+            ({{ contacto.dataCriacao.day }}/{{ contacto.dataCriacao.month }})
+            -
+            {{ contacto.nome }}
+            {{ contacto.apelido }}
+            <a href="{% url 'website:contactoApaga' contacto.id %}" class="btn btn-danger" style="float: right">Apagar</a>
+            <a href="{% url 'website:contactoEdita' contacto.id %}" class="btn btn-warning" style="float: right">Editar</a>
+        </p>
+    {% endfor %}
 {% endblock main %}
