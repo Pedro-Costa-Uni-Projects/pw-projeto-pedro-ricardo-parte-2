@@ -2,13 +2,8 @@
 {% load static %}
 {% block style %}
     label {
-        float:left;
-        width: 7%
-    }
-    @media (max-width: 600px) {
-        label {
-            width: 15%;
-        }
+        display:block;
+        margin-bottom: 1%;
     }
 {% endblock style %}
 {% block nav %}
@@ -36,11 +31,11 @@
         <span class="material-icons md-24">feedback</span>
         Comentarios
     </a>
-    <a href="{% url 'website:quizz' %}">
-        <span class="material-icons md-24">quiz</span>
+    <a class="active" href="{% url 'website:quizz' %}">
+        <span class="material-icons md-24">quizz</span>
         Quizz
     </a>
-    <a class="active" href="{% url 'website:contacto' %}">
+    <a href="{% url 'website:contacto' %}">
         <span class="material-icons md-24">alternate_email</span>
         Contacto
     </a>
@@ -50,12 +45,9 @@
     </a>
 {% endblock nav %}
 {% block main %}
-    <h3>Dê-nos os seus dados para podermos contactá-lo futuramente:</h3>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{ form.as_p }}
-    <input class="btn btn-primary" type="submit" value="Submeter">
-    </form>
-    <br>
-    <a class="btn btn-primary" href="{% url 'website:contactoLista' %}">Ver Todos os Contactos</a>
+    <h3>Resultados do Quizz:</h3>
+    <div style="display: flex; flex-wrap: wrap" class="centerIframeOrSvg">
+    <div class="centerIframeOrSvg">{{ graphPessoal | safe }}</div>
+    <div class="centerIframeOrSvg">{{ graphGrupo | safe }}</div>
+    </div>
 {% endblock main %}

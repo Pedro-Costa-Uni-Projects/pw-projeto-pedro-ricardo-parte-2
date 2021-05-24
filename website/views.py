@@ -2,10 +2,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .matplot import comentariosGraficoCircular
-from .matplot import comentariosGraficoBarras
-from .forms import ContactoForm
-from .forms import ComentarioForm
+from .matplot import comentariosGraficoCircular, comentariosGraficoBarras, quizzPessoal, quizzGrupo
+from .forms import ContactoForm, ComentarioForm, QuizzForm
 
 # Create your views here.
 from .models import Contacto
@@ -83,4 +81,20 @@ def contactoApaga_page_view(request, contacto_id):
 
 
 def quizz_page_view(request):
-    return render(request, 'website/quizz.html')
+    form = QuizzForm(request.POST or None)
+    if form.is_valid():
+        quizz = form.save()
+        return HttpResponseRedirect(reverse('website:quizzResult', args=(quizz.id,)))
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'website/quizz.html', context)
+
+
+def quizzResult_page_view(request, id):
+    context = {
+        'graphPessoal': quizzPessoal(id),
+        'graphGrupo': quizzGrupo(id),
+    }
+    return render(request, 'website/quizzResult.html', context)

@@ -50,7 +50,7 @@
     </a>
 {% endblock nav %}
 {% block main %}
-    <h3>Dê-nos a sua opinião sobre o Website</h3>
+    <h3>Editar Contacto:</h3>
     <form method="POST" action="{% url 'website:contactoEdita' contacto_id %}">
         {% csrf_token %}
         {{ form.as_p }}

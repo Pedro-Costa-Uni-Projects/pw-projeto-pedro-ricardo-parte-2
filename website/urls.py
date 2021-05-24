@@ -14,6 +14,7 @@ urlpatterns = [
     path('galeria', views.galeria_page_view, name='galeria'),
     path('provas', views.provas_page_view, name='provas'),
     path('quizz', views.quizz_page_view, name='quizz'),
+    path('quizzResult/<int:id>', views.quizzResult_page_view, name='quizzResult'),
     path('contacto', views.contacto_page_view, name='contacto'),
     path('ListaContactos', views.contactoLista_page_view, name='contactoLista'),
     path('editar/<int:contacto_id>', views.contactoEditar_page_view, name='contactoEdita'),
