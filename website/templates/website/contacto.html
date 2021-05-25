@@ -2,12 +2,12 @@
 {% load static %}
 {% block style %}
     label {
-        float:left;
-        width: 7%
+        display:block;
+        margin-bottom: 1%;
     }
     @media (max-width: 600px) {
-        label {
-            width: 15%;
+        input {
+            width: 100%; <!--Para telemovel-->
         }
     }
 {% endblock style %}
