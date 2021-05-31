@@ -6,7 +6,7 @@ from .matplot import comentariosGraficoCircular, comentariosGraficoBarras, quizz
 from .forms import ContactoForm, ComentarioForm, QuizzForm
 
 # Create your views here.
-from .models import Contacto
+from .models import Contacto, Pessoa
 
 
 def home_page_view(request):
@@ -24,7 +24,11 @@ def benificios_page_view(request):
 def comentarios_page_view(request):
     form = ComentarioForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        comentario = form.save()
+        Pessoa.objects.get_or_create(nome=comentario.nome)
+        pessoa = Pessoa.objects.get(nome=comentario.nome)
+        pessoa.comentario = comentario
+        pessoa.save()
         context = {
             'form': form,
             'graphCir': comentariosGraficoCircular(),
@@ -51,7 +55,11 @@ def provas_page_view(request):
 def contacto_page_view(request):
     form = ContactoForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        contacto = form.save()
+        Pessoa.objects.get_or_create(nome=contacto.nome)
+        pessoa = Pessoa.objects.get(nome=contacto.nome)
+        pessoa.contacto = contacto
+        pessoa.save()
         return HttpResponseRedirect(reverse('website:home'))
 
     context = {'form': form}
@@ -84,6 +92,10 @@ def quizz_page_view(request):
     form = QuizzForm(request.POST or None)
     if form.is_valid():
         quizz = form.save()
+        Pessoa.objects.get_or_create(nome=quizz.nome)
+        pessoa = Pessoa.objects.get(nome=quizz.nome)
+        pessoa.quizz = quizz
+        pessoa.save()
         return HttpResponseRedirect(reverse('website:quizzResult', args=(quizz.id,)))
 
     context = {

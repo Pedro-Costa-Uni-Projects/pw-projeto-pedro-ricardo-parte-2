@@ -1,11 +1,12 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Contacto, Comentario, Quizz
+from .models import Contacto, Comentario, Quizz, Pessoa
 
 
 class ContactoForm(ModelForm):
     formatacao = ["%d/%m/%Y"]
-    dataNascimento = forms.DateField(input_formats=formatacao)
+    dataNascimento = forms.DateField(input_formats=formatacao, label="Data de Nascimento")
+
     class Meta:
         model = Contacto
         fields = '__all__'
@@ -45,8 +46,6 @@ class QuizzForm(ModelForm):
             'pontos': forms.HiddenInput(),
         }
         labels = {
-            'nome': "Nome ",
-            'apelido': "Apelido  ",
             'p1': "Em que ano foi a natação incluida nos Jogos Olímpicos? ",
             'p2': "Qual a cidade onde as mulheres participaram nas provas de natacão nos Jogos Olímpicos pela primera vez? ",
             'p3': "Como se chama o primeiro nadador olímpico portugues? ",
