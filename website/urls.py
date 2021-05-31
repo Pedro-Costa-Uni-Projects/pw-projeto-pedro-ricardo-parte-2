@@ -19,4 +19,6 @@ urlpatterns = [
     path('ListaContactos', views.contactoLista_page_view, name='contactoLista'),
     path('editar/<int:contacto_id>', views.contactoEditar_page_view, name='contactoEdita'),
     path('apagar/<int:contacto_id>', views.contactoApaga_page_view, name='contactoApaga'),
+    path('login/', views.login_view, name="login"),
+    path('logout', views.logout_view, name="logout"),
 ]

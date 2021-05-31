@@ -1,15 +1,7 @@
 {% extends 'website/base.html' %}
-{% load static %}
-{% block style %}
-    main > p {
-        text-align: left;
-        padding: 10px;
-        margin: 10px;
-        background-color: rgb(0, 153, 255);
-    }
-{% endblock style %}
+
 {% block nav %}
-    <a href="{% url 'website:home' %}">
+    <a class="active" href="{% url 'website:home' %}">
         <span class="material-icons md-24">home</span>
         Home
     </a>
@@ -37,7 +29,7 @@
         <span class="material-icons md-24">quiz</span>
         Quizz
     </a>
-    <a class="active" href="{% url 'website:contacto' %}">
+    <a href="{% url 'website:contacto' %}">
         <span class="material-icons md-24">alternate_email</span>
         Contacto
     </a>
@@ -47,15 +39,13 @@
     </a>
 {% endblock nav %}
 {% block main %}
-    <h3>Lista de Contactos:</h3>
-    {% for contacto in contactos %}
-        <p>
-            ({{ contacto.dataCriacao.day }}/{{ contacto.dataCriacao.month }})
-            -
-            {{ contacto.nome }}
-            {{ contacto.apelido }}
-            <a href="{% url 'website:contactoApaga' contacto.id %}" class="btn btn-danger" style="float: right">Apagar</a>
-            <a href="{% url 'website:contactoEdita' contacto.id %}" class="btn btn-warning" style="float: right">Editar</a>
-        </p>
-    {% endfor %}
+    <h3>Login</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username">
+        <br>
+        <input type="text" name="password" placeholder="Password">
+        <br><br>
+        <input type="submit" value="Login" class="btn btn-success">
+    </form>
 {% endblock main %}

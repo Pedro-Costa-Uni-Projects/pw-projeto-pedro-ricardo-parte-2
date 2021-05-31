@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -69,10 +70,16 @@ def contacto_page_view(request):
 
 def contactoLista_page_view(request):
     context = {'contactos': sorted(Contacto.objects.all(), key=lambda objeto: objeto.id)}
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('website:login'))
+
     return render(request, 'website/contactoLista.html', context)
 
 
 def contactoEditar_page_view(request, contacto_id):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('website:login'))
+
     contacto = Contacto.objects.get(pk=contacto_id)
     form = ContactoForm(request.POST or None, instance=contacto)
     if form.is_valid():
@@ -110,3 +117,26 @@ def quizzResult_page_view(request, id):
         'graphGrupo': quizzGrupo(id),
     }
     return render(request, 'website/quizzResult.html', context)
+
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request,
+                            username=username,
+                            password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'website/index.html')
+        else:
+            return render(request, 'website/login.html', {
+                'Mensagem': "Credenciais Inválidas"
+            })
+    return render(request, 'website/login.html')
+
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'website/index.html', {
+        'Mensagem': 'Terminou Sessão'})

@@ -32,6 +32,13 @@
         {% endblock main %}
     </main>
     <aside>
+        <div style="display: flex; align-items: center; flex-direction: column;">
+            {% if request.user.username %}
+                <h3>Bem-vindo, {{ user.username }}</h3>
+                <a class="btn btn-warning" href="{% url 'website:logout' %}">Logout</a>
+            {% endif %}
+        </div>
+    <br>
         <svg width="300" height="200">
             <image href="{% static 'website/images/wordcloud.png' %}" width="100%" height="100%"></image>
             <!-- opacity a zero para não aparecer na figura os rectangulos-->
