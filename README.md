@@ -2,4 +2,4 @@
 
 ## Heroku App
 
--> meter aqui novo link heroku <-
+[pw-projeto-natacao-2.herokuapp.com](https://pw-projeto-natacao-2.herokuapp.com/)
