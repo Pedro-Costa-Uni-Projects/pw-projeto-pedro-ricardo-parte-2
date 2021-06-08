@@ -84,7 +84,7 @@ def contactoEditar_page_view(request, contacto_id):
     form = ContactoForm(request.POST or None, instance=contacto)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('website:home'))
+        return HttpResponseRedirect(reverse('website:contactoLista'))
 
     context = {'form': form, 'contacto_id': contacto_id}
     return render(request, 'website/contactoEditar.html', context)
@@ -92,7 +92,7 @@ def contactoEditar_page_view(request, contacto_id):
 
 def contactoApaga_page_view(request, contacto_id):
     Contacto.objects.get(pk=contacto_id).delete()
-    return HttpResponseRedirect(reverse('website:home'))
+    return HttpResponseRedirect(reverse('website:contactoLista'))
 
 
 def quizz_page_view(request):
@@ -128,7 +128,7 @@ def login_view(request):
                             password=password)
         if user is not None:
             login(request, user)
-            return render(request, 'website/index.html')
+            return render(request, 'website/contactoLista.html')
         else:
             return render(request, 'website/login.html', {
                 'Mensagem': "Credenciais Inválidas"

@@ -17,10 +17,13 @@
         {% block style %}
         {% endblock style %}
     </style>
+    {% block script %}
+    {% endblock script %}
 </head>
 <body>
     <header>
-        <h1>Natação</h1>
+        <!--adicionei isto para o titulo ser clicavel volta a home-->
+        <h1><a style="color: black" href="{% url 'website:home' %}">Natação</a></h1>
     </header>
     <nav>
         <!--O nav não fica aqui por causa da class Active-->

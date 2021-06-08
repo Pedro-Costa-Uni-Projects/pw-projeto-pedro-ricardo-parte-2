@@ -12,6 +12,9 @@
         margin-top: 1%;
     }
 {% endblock style %}
+{% block script %}
+    <script src="{% static 'website/js/script.js' %}"></script>
+{% endblock script %}
 {% block nav %}
     <a href="{% url 'website:home' %}">
         <span class="material-icons md-24">home</span>
