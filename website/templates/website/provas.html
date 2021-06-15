@@ -1,5 +1,11 @@
 {% extends 'website/base.html' %}
 {% load static %}
+{% block style %}
+    /*Para ser o javacript e o django a dar load um de cada vez*/
+    section {
+        display: none;
+    }
+{% endblock style %}
 {% block nav %}
     <a href="{% url 'website:home' %}">
         <span class="material-icons md-24">home</span>
@@ -38,7 +44,11 @@
         About
     </a>
 {% endblock nav %}
+{% block script %}
+    <script src="{% static 'website/js/singlePageApp.js' %}"></script>
+{% endblock script %}
 {% block main %}
+    <section id="0">
     <br>
     <figure style="text-align: center;">
         <a href="https://www.swimmingworldmagazine.com/news/2020-olympic-swimming-trials-will-get-750k-from-city-of-omaha/">
@@ -46,9 +56,9 @@
         </a>
         <details>Bloco de partida Olimpico</details>
     </figure>
-
-    <section>
-        <h2>Tipos de natação</h2>
+    </section>
+    <section id="1">
+        <h2>Tipos de Natação:</h2>
         <p id="firstBig" style="text-align: justify;">
             Com o avançar da popularidade do desporto começaram a haver uma melhor definição das provas que se faziam durante as provas, com isto defeniu-se a separação entre <b>NATAÇÃO PURA</b> e <b>ÁGUAS ABERTAS</b>
         </p>
@@ -82,15 +92,15 @@
             </figcaption>
         </figure>
     </section>
-
+    <section id="2">
     <h3>Natação Pura</h3>
     <h5>NOTA: se algum vídeo não abrir clique no título do mesmo, para abrir numa nova janela.</h5>
 
-    <section>
         <p id="firstBig" style="text-align: justify;">
             Como está na página de estilos deste site (se ainda não visitou <a href="{% url 'website:estilos' %}">clique aqui</a>) há 4 estilos de nado. Tendo em conta esses estilos há 17 provas olímpicas (realizadas nos Jogos Olímpicos) e 21 provas oficiais, há esta diferença pois há provas que se fazem nas provas realizadas pela <a href="https://www.fina.org/">FINA</a> que não são realizadas nos jogos olímpicos.
         </p>
-
+    </section>
+    <section id="3">
         <h4>1. Estilo livre</h4>
 
         <p id="firstBig" style="text-align: justify;">
@@ -103,7 +113,8 @@
         </p>
 
         <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/rhZtZvDdmcc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    </section>
+    <section id="4">
         <h4>2. Costas</h4>
 
         <p id="firstBig" style="text-align: justify;">
@@ -116,7 +127,8 @@
         </p>
 
         <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/iKPicQRTK6Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    </section>
+    <section id="5">
         <h4>3. Bruços</h4>
 
         <p id="firstBig" style="text-align: justify;">
@@ -129,7 +141,8 @@
         </p>
 
         <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/YsGHSe6N06w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    </section>
+    <section id="6">
         <h4>4. Mariposa</h4>
 
         <p id="firstBig" style="text-align: justify;">
@@ -142,7 +155,8 @@
         </p>
 
         <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/w4E5mqGnzIc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    </section>
+    <section id="7">
         <h4>5. Estilos</h4>
 
         <p id="firstBig" style="text-align: justify;">
@@ -155,7 +169,8 @@
         </p>
 
         <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/e-XGSYnhUjg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    </section>
+    <section id="8">
         <h4>6. Estafetas</h4>
 
         <p id="firstBig" style="text-align: justify;">
@@ -169,18 +184,17 @@
 
         <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/SsfX1_psc6o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
-
+    <section id="9">
     <h3>Águas Abertas</h3>
 
-    <section>
         <p id="firstBig" style="text-align: justify;">
             Todas as provas de águas abertas são realizadas no estilo livre e têm como distâncias 5km, 10km e 20km, onde apenas a distância de 10km é feita nos Jogos Olímpicos.
         </p>
     </section>
 
+    <section id="10">
     <h3>Recordes Mundiais</h3>
     <!-- Tabelas com os recordes do mundo-->
-    <section>
         <table class="centerTable"  cellpadding="10%" cellspacing="2">
             <caption style="font-size: 20px;">
                 Masculino
@@ -426,7 +440,7 @@
         </table>
     </section>
     <br><br><br>
-    <section>
+    <section id="11">
         <table class="centerTable" cellpadding="10%" cellspacing="2">
             <caption style="font-size: 20px;">
                 Feminino
@@ -670,7 +684,6 @@
                 <td>EUA</td>
             </tr>
         </table>
-
        <br><br>
        Se quiser saber mais sobre os recordes e rankings mundiais e nacionais <a href="https://www.swimrankings.net">veja aqui</a>
     </section>

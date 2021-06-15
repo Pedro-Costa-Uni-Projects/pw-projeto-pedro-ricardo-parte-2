@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Alerta com mensagem diferente para cada um dos formulários
     document.querySelector('form').onsubmit = function () {
         if (page === "comentarios") {
-            alert("Comentario submetido. Veja mais abaixo os resultados gerais.");
+            alert("Comentario submetido. Veja os resultados gerais.");
             localStorage.setItem('refresh',"1");
         }
 

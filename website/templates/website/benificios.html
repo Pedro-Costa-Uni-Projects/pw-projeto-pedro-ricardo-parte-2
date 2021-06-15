@@ -1,5 +1,11 @@
 {% extends 'website/base.html' %}
 {% load static %}
+{% block style %}
+    /*Para ser o javacript e o django a dar load um de cada vez*/
+    section {
+        display: none;
+    }
+{% endblock style %}
 {% block nav %}
     <a href="{% url 'website:home' %}">
         <span class="material-icons md-24">home</span>
@@ -38,22 +44,25 @@
         About
     </a>
 {% endblock nav %}
+{% block script %}
+    <script src="{% static 'website/js/singlePageApp.js' %}"></script>
+{% endblock script %}
 {% block main %}
     <!--BENIFICIOS INTRO-->
-    <section style="display: flex;">
+    <section id="0">
         <p id="firstBig" style="text-align:justify;">
             Nadar favorece um coração saudável, deixa-nos mais flexíveis, promove um peso ideal, mas há mais. Ou não fosse a natação uma das modalidades mais completas.
             E não é por acaso pois esta modalidade, em que todos os músculos do nosso corpo entram em ação, está repleta de benefícios desde o coração, às articulações, peso e postura.
             A melhor parte é que pode ser praticada por todas as idades.<a href="https://www.cuf.pt/mais-saude/5-beneficios-da-natacao">[1]</a>
         </p>
-        <figure>
+        <figure style="text-align: center">
             <a href="https://blog.unisportbrasil.com.br/wp-content/uploads/2020/08/original-771c1624327ddf171cab0c81edecb3c4-scaled.jpeg">
                 <img src="{% static 'website/images/benificios1.jpg' %}" class="borBlueRad25">
             </a>
             <figcaption style="text-align: center;">Nado do tipo "Crawl"</figcaption>
         </figure>
     </section>
-    <section>
+    <section id="1">
         <article>
             <h3>1. Melhora a postura e a flexibilidade:</h3>
             <p id="firstBig" style="text-align: justify;">
@@ -61,7 +70,7 @@
             </p>
         </article>
     </section>
-    <section>
+    <section id="2">
         <article>
             <h3>2. Diminui a dor e risco de lesões:</h3>
             <p id="firstBig" style="text-align: justify;">
@@ -72,7 +81,7 @@
             </p>
         </article>
     </section>
-    <section>
+    <section id="3">
         <figure style="text-align: center;">
             <a href="https://www.jasminealimentos.com/wp-content/uploads/2015/08/natacao1.jpg">
                 <img src="{% static 'website/images/benificios2.jpg' %}" class="borBlueRad25">
@@ -80,7 +89,7 @@
             <figcaption style="text-align: center;">"Volta" na parede ou viragem</figcaption>
         </figure>
     </section>
-    <section>
+    <section id="4">
         <article>
             <h3>3. Mantém o coração mais saudável:</h3>
             <p id="firstBig" style="text-align: justify;">
@@ -88,7 +97,7 @@
             </p>
         </article>
     </section>
-    <section>
+    <section id="5">
         <article>
             <h3>4. Aumenta a autoestima:</h3>
             <p id="firstBig" style="text-align: justify;">
@@ -97,7 +106,7 @@
             </p>
         </article>
     </section>
-    <section>
+    <section id="6">
         <article>
             <h3>5. Favorece o aumento da massa muscular:</h3>
             <p id="firstBig" style="text-align: justify;">
@@ -109,7 +118,7 @@
         </article>
     </section>
     <!--VIDEO COM BENFICIOS-->
-    <section>
+    <section id="7">
         <p>Se o seu estilo é mais video do que texto, veja este aqui sobre os benificios da natação:</p>
         <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/AfnwseOgxE0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>

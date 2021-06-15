@@ -1,5 +1,11 @@
 {% extends 'website/base.html' %}
 {% load static %}
+{% block style %}
+    /*Para ser o javacript e o django a dar load um de cada vez*/
+    section {
+        display: none;
+    }
+{% endblock style %}
 {% block nav %}
     <a href="{% url 'website:home' %}">
         <span class="material-icons md-24">home</span>
@@ -38,8 +44,11 @@
         About
     </a>
 {% endblock nav %}
+{% block script %}
+    <script src="{% static 'website/js/singlePageApp.js' %}"></script>
+{% endblock script %}
 {% block main %}
-    <section>
+    <section id="0">
         <figure style="text-align: center;">
             <figcaption style="text-align: center; ">Mapa do Website</figcaption>
             <a href="{% static 'website/images/mapaWebsite.png' %}" target="_blank">
@@ -51,7 +60,7 @@
     <br>
     <!--LAYOUT PC-->
     <div class="tabelasPequenasAbout">
-        <section>
+        <section id="1">
             <table class="tableCenter" cellpadding="10%" cellspacing="3">
                 <thead>
                     <caption>
@@ -83,7 +92,7 @@
             </table>
         </section>
         <!--LAYOUT MOBILE-->
-        <section>
+        <section id="2">
             <table class="tableCenter" cellpadding="10%" cellspacing="3">
                 <thead>
                     <caption>
@@ -110,7 +119,7 @@
             </table>
         </section>
         <!--TABELA Inventário-->
-        <section>
+        <section id="3">
             <table class="tableCenter" cellpadding="10%" cellspacing="3">
                 <thead>
                     <caption>
@@ -144,7 +153,7 @@
     </div>
     <br><br>
     <!--Tabela tecnicas-->
-    <section>
+    <section id="4">
         <table style="margin: auto;" cellpadding="10%" cellspacing="3">
             <thead>
                 <tr>
@@ -196,9 +205,9 @@
         </table>
     </section>
     <br><br>
+    <section id="5">
     <h3 style="text-align: center;">Vídeo de Apresentação</h3>
     <!--VIDEO YOUTUBE-->
-    <section>
         <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/gBVCagY2WHU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
 {% endblock %}

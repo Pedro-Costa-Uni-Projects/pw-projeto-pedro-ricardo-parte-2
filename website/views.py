@@ -1,5 +1,7 @@
+import time
+
 from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
 
@@ -12,6 +14,21 @@ from .models import Contacto, Pessoa
 
 def home_page_view(request):
     return render(request, 'website/index.html')
+
+
+def seccoes(request):
+    start = int(request.GET.get("start") or 0)
+    end = int(request.GET.get("end") or (start + 12))
+
+    data = []
+    for i in range(start, end + 1):
+        data.append(f"{i}")
+
+    # time.sleep(0.5)
+
+    return JsonResponse({
+        "seccoes": data
+    })
 
 
 def about_page_view(request):

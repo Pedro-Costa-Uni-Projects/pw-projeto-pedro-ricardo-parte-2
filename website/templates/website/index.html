@@ -1,7 +1,7 @@
 {% extends 'website/base.html' %}
 {% load static %}
     {% block style %}
-        <!--Para não ficar tudo mal quando for para telemovel-->
+        /*Para não ficar tudo mal quando for para telemovel*/
         @media (max-width: 600px) {
             main > div {
                 display: flex;
@@ -20,6 +20,10 @@
         nav {
             animation-name: backChange;
             animation-duration: 5s;
+        }
+        /*Para ser o javacript e o django a dar load um de cada vez*/
+        section {
+            display: none;
         }
     {% endblock %}
 {% block nav %}
@@ -60,10 +64,13 @@
         About
     </a>
 {% endblock nav %}
+{% block script %}
+    <script src="{% static 'website/js/singlePageApp.js' %}"></script>
+{% endblock script %}
 {% block main %}
     <div> <!--Div adiconado para nao levar com a class mainDisplayFlex-->
         <!--HISTORIA A NATAÇÃO-->
-        <section>
+        <section id="0">
             <h3>Qual é a história da natação?</h3>
                 <p id="firstBig" style="text-align: justify;">
                     Os seres humanos nadam há milênios.
@@ -81,7 +88,7 @@
                     </figcaption>
                 </figure>
         </section>
-        <section>
+        <section id="1">
             <p id="firstBig" style="text-align: justify;">
                 De acordo com a <i>Encyclopedia of Traditional British Rural Sports</i>, a literatura especificamente relacionada à natação cresceu na idade média.
                 Acredita-se que o primeiro livro dedicado à natação foi <i>Colymbetes</i> de Nicolas Wynman escrito em 1538, e um texto mais amplamente conhecido, De Arte Nantandi, foi publicado em latim por Everard Digby em 1587.
@@ -93,7 +100,7 @@
                 Eventos de alto nível também contribuíram para a visibilidade da natação. Por exemplo, Matthew Webb fez a travessia do Canal da Mancha (<i>English Channel</i>) em 1875, em menos de 22 horas.
             </p>
         </section>
-        <section>
+        <section id="2">
             <figure style="text-align: center;">
                 <a href="https://www.historytoday.com/archive/months-past/matthew-webb-swims-english-channel">
                     <img class="fotoHome2" src="{% static 'website/images/home2.jpg' %}">
@@ -101,7 +108,7 @@
                 <figcaption>Capitão Matthem Webb</figcaption>
             </figure>
         </section>
-        <section>
+        <section id="3">
             <p id="firstBig" style="text-align: justify;">
                 A natação competitiva continuou a crescer em popularidade durante os anos 1800 e foi incluída nos primeiros Jogos Olímpicos modernos em Atenas, em 1896.
                 Em 1904, as Olimpíadas em St. Louis incluíram as provas de 50-, 100-, 220-, 440-, 880 jardas e um estilo livre de uma milha, o nado de costas de 100 jardas e o nado de bruços de 440 jardas e uma estafeta de nado livre de 4x50 jardas.
@@ -112,11 +119,11 @@
             </p>
         </section>
 
-        <section>
+        <section id="4">
             <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/E4Kdh1TSmJE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </section>
 
-        <section>
+        <section id="5">
             <h3>História Moderna</h3>
             <p id="firstBig" style="text-align: justify;">
                 A primeira Grande Figura aparece nos finais da decada de 60, essa figura era o americano <a href="https://pt.wikipedia.org/wiki/Mark_Spitz">Mark Spitz</a> que tem 8 medalhas olimpicas em sua posse.
@@ -146,7 +153,7 @@
             </p>
         </section>
 
-        <section>
+        <section id="6">
             <h3>História da natação portuguesa</h3>
             <p id="firstBig" style="text-align: justify;">
                 Em Portugal os primordios da natação demoraram a chegar mas a primeira prova chegou ainda na primeira decada do seculo XX no rio Tejo. <br>
@@ -167,7 +174,8 @@
                     Alexandre Yokochi
                 </figcaption>
             </figure>
-
+        </section>
+        <section id="7">
             <p id="firstBig" style="text-align: justify;">
                 Na decada de 2000 começaram-se a destacar Simão Morgado e Diana Gomes, ambos com participações em jogos olimpicos. <br>
                 Atualmente há varios grandes nomes na natação portugues. Diogo Carvalho e Alexis Santos são dos poucos com JO na bagagem e também medalhas europeias. Há também nomes como Miguel Nascimento, Gabriel Lopes, entre outros. <br>
