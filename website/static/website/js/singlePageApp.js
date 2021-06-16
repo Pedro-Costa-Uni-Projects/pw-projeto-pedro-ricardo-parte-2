@@ -1,8 +1,14 @@
+const path = window.location.pathname;
+const page = path.split("/").pop();
+
 // primeira seccao
 let counter = 0;
 
 // carregar 3 secções ao inicio
 let quantity = 3;
+if(page === "about") {
+    quantity = 5;
+}
 
 // Quando o DOM carrega carregar as 3 primeiras secções
 document.addEventListener('DOMContentLoaded', load);
@@ -10,8 +16,8 @@ document.addEventListener('DOMContentLoaded', load);
 // Se der scroll até ao fim carregar mais 1
 window.onscroll = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      quantity = 1;
-      load();
+        quantity = 1;
+        load();
     }
 };
 
