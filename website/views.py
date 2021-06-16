@@ -24,7 +24,7 @@ def seccoes(request):
     for i in range(start, end + 1):
         data.append(f"{i}")
 
-    time.sleep(0.5)
+    time.sleep(1)
 
     return JsonResponse({
         "seccoes": data
