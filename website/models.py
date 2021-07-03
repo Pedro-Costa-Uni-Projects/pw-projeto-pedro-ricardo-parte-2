@@ -33,7 +33,7 @@ class Comentario(models.Model):
 
 class Quizz(models.Model):
     id = models.AutoField(primary_key=True)
-    pontos = models.IntegerField(default=0)
+    pontos = models.FloatField(default=0.0)
     nome = models.CharField(max_length=30, default="", verbose_name="O seu Nome ")
     p1 = models.IntegerField(default=0)
     p2 = models.CharField(max_length=40, default="")

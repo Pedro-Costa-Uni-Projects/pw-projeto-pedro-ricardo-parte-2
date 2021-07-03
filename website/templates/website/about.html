@@ -5,6 +5,9 @@
     section {
         display: none;
     }
+    th {
+        text-align: center;
+    }
 {% endblock style %}
 {% block nav %}
     <a href="{% url 'website:home' %}">
@@ -129,7 +132,7 @@
                 <tbody>
                     <tr>
                         <td>Páginas</td>
-                        <td>7</td>
+                        <td>13</td>
                     </tr>
                     <tr>
                         <td>Imagens</td>
@@ -137,7 +140,7 @@
                     </tr>
                     <tr>
                         <td>Links Externos</td>
-                        <td>17</td>
+                        <td>18</td>
                     </tr>
                     <tr>
                         <td>Vídeos</td>
@@ -152,7 +155,7 @@
         </section>
     </div>
     <br><br>
-    <!--Tabela tecnicas-->
+    <!--Tabela Syntax HTML e CSS-->
     <section id="4">
         <table style="margin: auto;" cellpadding="10%" cellspacing="3">
             <thead>
@@ -162,7 +165,7 @@
                     <th>Exemplos</th>
                 </tr>
                 <caption>
-                    Tabela de Técnicas Usadas
+                    Tabela Syntax HTML e CSS
                 </caption>
             </thead>
             <tbody>
@@ -205,9 +208,92 @@
         </table>
     </section>
     <br><br>
+    <!--Tabela tecnicas usadas-->
     <section id="5">
+        <table style="margin: auto;" cellpadding="10%" cellspacing="3">
+            <thead>
+                <tr>
+                    <th>Técnicas</th>
+                    <th>Detalhes</th>
+                </tr>
+                <caption>
+                    Tabela de Técnicas Usadas
+                </caption>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML</td>
+                    <td>O HTML foi usado como base deste projeto, desde o começo em um site estático para agora em Django. Serviu também para uma melhor clareza e organização do código.</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>O CSS é o responsável pela estilização e responsividade do site, desde animações, cores ao estilo do texto.</td>
+                </tr>
+                <tr>
+                    <td>Django</td>
+                    <td>O Django foi utilizado como web framework do site, serviu para passar de um site estático para um dinâmico, renderizando as páginas com dados da BD.</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>O JavaScript serviu forma de ligação entre o DOM e o Django, atualizando as páginas em tempo real.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <br><br>
+    <!--Tabela tecnologias usadas-->
+    <section id="6">
+        <table style="margin: auto;" cellpadding="10%" cellspacing="3">
+            <thead>
+                <tr>
+                    <th>Tecnologias</th>
+                    <th>Detalhes</th>
+                </tr>
+                <caption>
+                    Tabela de Tecnologias Usadas
+                </caption>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML</td>
+                    <td>Ver tabela acima</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>Ver tabela acima.</td>
+                </tr>
+                <tr>
+                    <td>Django</td>
+                    <td>O django foi usado para guardar os dados obtidos nos formulários de quizz, comentários e contacto, estando estes associados a uma class pessoa fazendo assim uso da foreign key. (ver descrição mais detalhada no github)</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Juntamente com o Django implementamos uma SPA "scroll infinito" uma adaptação de uma SPA criada em aula pelo professor Lúcio. Esta quando o user chega ao fim da página vai carregando mais informação segundo a ordem que o Django deu. (ver descrição mais detalhada no github)</td>
+                </tr>
+                <tr>
+                    <td>GitHub</td>
+                    <td>O github foi utilizado como local de repositório do projeto, servindo assim para um melhor trabalho de equipa, tendo sempre o projeto atualizado.</td>
+                </tr>
+                <tr>
+                    <td>Heroku</td>
+                    <td>O heroku serviu como plataforma de cloud para implementação do website.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <br><br>
+    <section id="7">
+        <figure style="text-align: center;">
+            <a href="https://github.com/pedroC-21904825/pw-projeto-pedro-ricardo-parte-2" target="_blank">
+                <img src="{% static 'website/images/github.png' %}">
+            </a>
+            <figcaption style="text-align: center;">Repositório GitHub</figcaption>
+        </figure>
+    </section>
+    <br><br>
+    <section id="8">
     <h3 style="text-align: center;">Vídeo de Apresentação</h3>
     <!--VIDEO YOUTUBE-->
-        <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/gBVCagY2WHU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe class="centerIframeOrSvg" width="500" height="255" style="max-width: 100%; border: 5px solid rgb(8, 70, 95);" src="https://www.youtube.com/embed/Q5zeY97pP0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </section>
 {% endblock %}
