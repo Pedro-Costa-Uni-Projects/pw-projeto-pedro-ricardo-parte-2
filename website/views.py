@@ -145,7 +145,7 @@ def login_view(request):
                             password=password)
         if user is not None:
             login(request, user)
-            return render(request, 'website/contactoLista.html')
+            return contactoLista_page_view(request)
         else:
             return render(request, 'website/login.html', {
                 'Mensagem': "Credenciais Inválidas"

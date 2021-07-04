@@ -4,8 +4,7 @@ from .models import Contacto, Comentario, Quizz, Pessoa
 
 
 class ContactoForm(ModelForm):
-    formatacao = ["%d/%m/%Y"]
-    dataNascimento = forms.DateField(input_formats=formatacao, label="Data de Nascimento")
+    dataNascimento = forms.DateField(label="Data de Nascimento (YYYY-MM-DD)")
 
     class Meta:
         model = Contacto
